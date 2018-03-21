@@ -25,9 +25,9 @@
                                 <div class='content'>".$row->nombre."<div class='sub header'>Estudiante</div></div>
                             </h4>
                         </td>
-                        <td>" . $row['edad'] . "</td>
-                        <td>".$row['NOMBRESECCION']."</td>
-                        <td>" . $row['promedio'] . "</td>
+                        <td>" . $row->edad. "</td>
+                        <td>".$row->NOMBRESECCION."</td>
+                        <td>" . $row->promedio."</td>
                         <td>
                             <a href='".URL."estudiantes/ver/".$row->id."' class='ui icon black button' 
                                 data-tooltip='Ver Datos De ".$row->nombre."' data-position='bottom top' data-inverted=''>
