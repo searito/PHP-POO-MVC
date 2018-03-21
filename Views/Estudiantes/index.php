@@ -15,31 +15,32 @@
 
                 <tbody>
 <?php
-                while ($row = mysqli_fetch_array($datos)) {
+                #while ($row = mysqli_fetch_array($datos)) {
+                while ($row = $datos->fetch(PDO::FETCH_OBJ)) {
                     #echo $row['nombre']."<br>";
                     echo"<tr>
                         <td>
                             <h4 class='ui image header'>
-                                <img src='".URL."Views/Template/imagenes/avatars/".$row['imagen']."' class='ui mini rounded image'>
-                                <div class='content'>".$row['nombre']."<div class='sub header'>Estudiante</div></div>
+                                <img src='".URL."Views/Template/imagenes/avatars/".$row->imagen."' class='ui mini rounded image'>
+                                <div class='content'>".$row->nombre."<div class='sub header'>Estudiante</div></div>
                             </h4>
                         </td>
                         <td>" . $row['edad'] . "</td>
                         <td>".$row['NOMBRESECCION']."</td>
                         <td>" . $row['promedio'] . "</td>
                         <td>
-                            <a href='".URL."estudiantes/ver/".$row['id']."' class='ui icon black button' 
-                                data-tooltip='Ver Datos De ".$row['nombre']."' data-position='bottom top' data-inverted=''>
+                            <a href='".URL."estudiantes/ver/".$row->id."' class='ui icon black button' 
+                                data-tooltip='Ver Datos De ".$row->nombre."' data-position='bottom top' data-inverted=''>
                                 <i class='eye icon'></i>
                             </a>
 
-                            <a href='".URL."estudiantes/editar/".$row['id']. "' class='ui icon blue button' 
-                                data-tooltip='Editar Datos De ".$row['nombre']. "' data-position='top left' data-inverted=''>
+                            <a href='".URL."estudiantes/editar/".$row->id."' class='ui icon blue button' 
+                                data-tooltip='Editar Datos De ".$row->nombre. "' data-position='top left' data-inverted=''>
                                 <i class='edit outline icon'></i>
                             </a>
 
-                            <a href='" . URL . "estudiantes/eliminar/" . $row['id'] . "' class='ui icon red button' 
-                                data-tooltip='Eliminar A " . $row['nombre'] . "' data-position='bottom right' data-inverted=''>
+                            <a href='" . URL . "estudiantes/eliminar/" . $row->id. "' class='ui icon red button' 
+                                data-tooltip='Eliminar A " . $row->nombre. "' data-position='bottom right' data-inverted=''>
                                 <i class='edit trash alternate outline icon'></i>
                             </a>
                         </td>

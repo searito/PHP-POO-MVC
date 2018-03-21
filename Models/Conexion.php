@@ -14,11 +14,13 @@
         private $con;
 
         public function __construct(){
-            $this->con = new \mysqli($this->datos['host'], $this->datos['user'], 
-                                    $this->datos['pass'], $this->datos['db']);
+            /*$this->con = new \mysqli($this->datos['host'], $this->datos['user'], 
+                                    $this->datos['pass'], $this->datos['db']);*/
             
-            /*$this->con = new \PDO('mysql:host = $this->datos["host"]; dbname = $this->datos["db"]', 
-                                   $this->datos['user'], $this->datos['pass']);*/
+            
+            $this->con = new \PDO('mysql:host = $this->datos["host"]; dbname = $this->datos["db"]', 
+                                   $this->datos['user'], $this->datos['pass']);
+            
         }
 
         public function consultaSimple($sql){
@@ -26,7 +28,11 @@
         }
 
         public function consultaRetorno($sql){
-            $datos = $this->con->query($sql);
+            /*$datos = $this->con->query($sql);
+            return $datos;*/
+
+            $datos = $this->con->prepare($sql);
+            $datos->execute();
             return $datos;
         }
     }
