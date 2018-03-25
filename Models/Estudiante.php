@@ -30,10 +30,6 @@
 
 
         public function listar(){
-            /*$sql = "SELECT t1. * ,t2.nombre AS NOMBRESECCION 
-                    FROM estudiantes t1 
-                    INNER JOIN  secciones t2 ON t1.id_seccion = t2.id";*/
-            
             $sql = "SELECT t1. * ,t2.nombre AS NOMBRESECCION 
                     FROM estudiantes t1 
                     INNER JOIN  secciones t2 ON t1.id_seccion = t2.id";

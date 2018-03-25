@@ -24,7 +24,10 @@
         }
 
         public function consultaSimple($sql){
-            $this->con->query($sql);
+            #$this->con->query($sql);
+
+            $datos = $this->con->prepare($sql);
+            $datos->execute($datos);
         }
 
         public function consultaRetorno($sql){
